@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="container">
+        <h2>{{ note.title }}</h2>
+        <p>{{ note.description }}</p>
+        <p>{{ note.slug }}</p>
+        <p>{{ note.author.username }}</p>
+        <a href="{% url 'update_note' note.slug %}">Обновить запись</a>
+        <hr>
+    </div>
+</body>
+</html>

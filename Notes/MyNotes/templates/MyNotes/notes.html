@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="container">
+        <h3><a href="{% url 'create_note'%}">Создать заметку</a></h3>
+        <ul>
+            {% for note in notes %}
+            <li><a href="{% url 'get_note' note.slug %}"><h2>{{ note.title }}</h2></a></li>
+            <li><p>{{ note.description }}</p></li>
+            <li>{{ note.slug }}</li>
+            <li>{{ note.author.username }}</li>
+            <hr>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
