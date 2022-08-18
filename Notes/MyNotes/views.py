@@ -42,3 +42,13 @@ def update_note(request, slug):
             form.save()
         return redirect('get_note', slug)
     return render(request, 'MyNotes/update.html', {'form': form})
+
+
+def delete_note(request, slug):
+    if slug:
+        try:
+            note = get_object_or_404(Note, slug=slug)
+        except:
+            print('Что-то пошло не так!')
+        note.delete()
+    return redirect('all_notes')

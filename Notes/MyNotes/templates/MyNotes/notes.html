@@ -13,6 +13,7 @@
             <li><p>{{ note.description }}</p></li>
             <li>{{ note.slug }}</li>
             <li>{{ note.author.username }}</li>
+            <a href="{% url 'delete_note' note.slug %}">Удалить запись</a>
             <hr>
             {% endfor %}
         </ul>

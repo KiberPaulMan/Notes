@@ -8,4 +8,4 @@ class NoteAdmin(admin.ModelAdmin):
     list_editable = ['author', ]
     list_filter = ['author', 'created', ]
     search_fields = ['title', 'slug']
-    prepopulated_fields = {'slug': ('title', )}
+    # prepopulated_fields = {'slug': ('title', )}
