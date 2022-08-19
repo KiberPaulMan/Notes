@@ -5,12 +5,14 @@
     <title>Title</title>
 </head>
 <body>
+    <a href="{% url 'all_notes' %}">На главную</a>
     <div id="container">
         <h2>{{ note.title }}</h2>
         <p>{{ note.description }}</p>
         <p>{{ note.slug }}</p>
         <p>{{ note.author.username }}</p>
         <a href="{% url 'update_note' note.slug %}">Обновить запись</a>
+        <a href="{% url 'delete_note' note.slug %}">Удалить запись</a>
         <hr>
     </div>
 </body>

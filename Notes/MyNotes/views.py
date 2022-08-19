@@ -18,9 +18,6 @@ def get_note(request, note_slug):
 def create_note(request):
     if request.method == 'POST':
         form = NoteForm(request.POST)
-        # form.save(commit=False)
-        # t1 = form.cleaned_data['title']
-        # print('TITLE = ', t1)
         if form.is_valid():
             form.save()
             return redirect('all_notes')
@@ -31,12 +28,7 @@ def create_note(request):
 
 def update_note(request, slug):
     note = get_object_or_404(Note, slug=slug)
-    form = NoteForm(note)
-    # form.title = note.title
-    # form.description = note.description
-    # form.author = note.author
-    # print(form.title, form.description, form.author)
-    # form.save(commit=False)
+    form = NoteForm(request.POST or None, instance=note)
     if request.method == 'POST':
         if form.is_valid():
             form.save()
